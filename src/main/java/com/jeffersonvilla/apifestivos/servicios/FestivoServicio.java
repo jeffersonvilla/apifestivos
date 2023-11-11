@@ -3,12 +3,14 @@ package com.jeffersonvilla.apifestivos.servicios;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jeffersonvilla.apifestivos.DTO.FestivoDTO;
 import com.jeffersonvilla.apifestivos.entidades.Festivo;
 import com.jeffersonvilla.apifestivos.interfaces.IFestivoServicio;
 import com.jeffersonvilla.apifestivos.repositorios.FestivoRepositorio;
@@ -139,6 +141,17 @@ public class FestivoServicio implements IFestivoServicio {
         else if (fecha.get(Calendar.DAY_OF_WEEK) < Calendar.MONDAY)
             fecha.add(Calendar.DATE, 1);
         return fecha;
-    }  
+    }
+    
+    @Override
+    public List<FestivoDTO> obtenerFestivos(int año) {
+        List<Festivo> festivos = repositorio.findAll();
+        festivos = calcularFestivos(festivos, año);
+        List<FestivoDTO> fechas = new ArrayList<FestivoDTO>();
+        for (final Festivo festivo : festivos) {
+            fechas.add(new FestivoDTO(festivo.getNombre(), festivo.getFecha().getTime()));
+        }
+        return fechas;
+    }
 
 }

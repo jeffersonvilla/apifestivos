@@ -1,12 +1,14 @@
 package com.jeffersonvilla.apifestivos.controladores;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jeffersonvilla.apifestivos.DTO.FestivoDTO;
 import com.jeffersonvilla.apifestivos.interfaces.IFestivoServicio;
 
 @RestController
@@ -30,5 +32,10 @@ public class FestivosControlador {
             if(servicio.esFestivo(fecha)) return "Es Festivo";
             else return "No es festivo";
         }
+    }
+
+    @GetMapping("/listar/{año}")
+    public List<FestivoDTO> listarFestivos(@PathVariable int año){
+        return servicio.obtenerFestivos(año);
     }
 }
