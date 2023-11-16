@@ -34,7 +34,7 @@ public class FestivosControlador {
         }
     }
 
-    @GetMapping("/listar/{año}")
+    @GetMapping("/obtener/{año}")
     public List<FestivoDTO> listarFestivos(@PathVariable int año){
         return servicio.obtenerFestivos(año);
     }
