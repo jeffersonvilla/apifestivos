@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jeffersonvilla.apifestivos.entidades.Tipo;
 
 @Repository
-public interface TipoRepositorio extends JpaRepository<Tipo, Integer>{
+public interface TipoRepositorio extends JpaRepository<Tipo, Long>{
     
 }
