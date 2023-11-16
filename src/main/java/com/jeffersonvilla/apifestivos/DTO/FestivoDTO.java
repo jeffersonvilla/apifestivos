@@ -1,7 +1,6 @@
 package com.jeffersonvilla.apifestivos.DTO;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class FestivoDTO {
 
