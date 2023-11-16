@@ -1,14 +1,15 @@
 package com.jeffersonvilla.apifestivos.DTO;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class FestivoDTO {
 
     private String nombre;
 
-    private Date fecha;
+    private LocalDate fecha;
 
-    public FestivoDTO(String nombre, Date fecha) {
+    public FestivoDTO(String nombre, LocalDate fecha) {
         this.nombre = nombre;
         this.fecha = fecha;
     }
@@ -21,11 +22,11 @@ public class FestivoDTO {
         this.nombre = nombre;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
     

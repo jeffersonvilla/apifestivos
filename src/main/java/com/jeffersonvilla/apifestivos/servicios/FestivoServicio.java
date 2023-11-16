@@ -3,6 +3,7 @@ package com.jeffersonvilla.apifestivos.servicios;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -149,7 +150,7 @@ public class FestivoServicio implements IFestivoServicio {
         festivos = calcularFestivos(festivos, año);
         List<FestivoDTO> fechas = new ArrayList<FestivoDTO>();
         for (final Festivo festivo : festivos) {
-            fechas.add(new FestivoDTO(festivo.getNombre(), festivo.getFecha().getTime()));
+            fechas.add(new FestivoDTO(festivo.getNombre(), LocalDate.of(festivo.getAnio(), festivo.getMes(), festivo.getDia())));
         }
         return fechas;
     }
