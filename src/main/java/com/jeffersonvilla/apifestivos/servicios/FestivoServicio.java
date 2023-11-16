@@ -63,7 +63,7 @@ public class FestivoServicio implements IFestivoServicio {
                 fechaBasadaEnPascua.setTime(pascua.getTime());
                 fechaBasadaEnPascua.add(Calendar.DATE, festivo.getDiasPascua());
 
-                switch (festivo.getTipoFestivo().getId()) {
+                switch ((int) festivo.getTipoFestivo().getId()) {
                     case 2:
                         festivo.setFecha(siguienteLunes(festivo.getFecha()));
                         break;
